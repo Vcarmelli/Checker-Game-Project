@@ -93,7 +93,6 @@ canvas.onmouseup = function(e){
         piecemoving.piece.size = piecemoving.size;
         piecemoving = null;
     }
-    // score = 0;
 }
 
 function updatePiecesPos(piecemoving, move, i, bf){
@@ -130,8 +129,6 @@ function updatePiecesPos(piecemoving, move, i, bf){
                     removedPlayer = bf.move;
                     score += 1;
                     console.log("SCORE sa move cap: " + score);
-                    // console.log("removed?: " + removed);
-                    // console.log("REMOVED PLAYER: " + removedPlayer);
                     break;
                 }
             }
@@ -146,7 +143,6 @@ function updatePiecesPos(piecemoving, move, i, bf){
 }
 
 function isRemoved() {
-    // console.log(removed);
     return removed;
 }
 
@@ -226,10 +222,7 @@ canvas.onmousemove = function(e){
     }
     let cleared = isRemoved();
     if(cleared){
-        console.log("removedPlayer: " + removedPlayer);       
-        console.log("SCORE SA CLEARED: " + score);
         updateScores(removedPlayer, score);
-        console.log("removedPlayer after update: " + removedPlayer);
     }
     score = 0;
 }
