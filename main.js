@@ -17,6 +17,8 @@ const tiles = [];
 let moving = false;
 let mousepos = 0;
 let piecemoving = null;
+let removed = false;
+let removedPlayer = 0;
 let score = 0;
 
 function init(){
@@ -91,16 +93,17 @@ canvas.onmouseup = function(e){
         piecemoving.piece.size = piecemoving.size;
         piecemoving = null;
     }
-
+    // score = 0;
 }
 
 function updatePiecesPos(piecemoving, move, i, bf){
+    console.log("SCORE sa func: " + score);
     if(!move[0]) return false;
 
     switch(move[1])
     {
         case MOVE_TYPE.MOVE_NORMAL:
-        {
+        {   
             tiles[i].piece = piecemoving.piece;
             tiles[i].piece.x = tiles[i].x;
             tiles[i].piece.y = tiles[i].y;
@@ -119,15 +122,19 @@ function updatePiecesPos(piecemoving, move, i, bf){
             tiles[i].piece.x = tiles[i].x;
             tiles[i].piece.y = tiles[i].y;
             tiles[i].piece.size = tiles[i].size;
-
+            
             for(let toRemove of tiles){
                 if (toRemove.sqr == move[2]){
                     toRemove.piece = null;
+                    removed = true;
+                    removedPlayer = bf.move;
                     score += 1;
+                    console.log("SCORE sa move cap: " + score);
+                    // console.log("removed?: " + removed);
+                    // console.log("REMOVED PLAYER: " + removedPlayer);
                     break;
                 }
             }
-            updateScores(bf.move);
             piecemoving.piece = null;
             piecemoving = null;
             updateSuperPiece(bf.rPieces, PIECE_TYPE.SUPER_RED);
@@ -138,19 +145,33 @@ function updatePiecesPos(piecemoving, move, i, bf){
     return true;
 }
 
-function updateScores(player) {
+function isRemoved() {
+    // console.log(removed);
+    return removed;
+}
+
+function updateScores(player, score) {
+    console.log("SCORE before: " + score);
     if (player == 1) {
         let play = 'P2';
-        $('#p2-score').append("<div class='capturedPiece'></div>");
-        BOARD_DEF.scores[play] += 1;
+        BOARD_DEF.scores[play] += score;
         console.log("P2 Score: " + BOARD_DEF.scores[play]);
+        for (let i = 0; i<score; i++){
+            $('#p2-score').append("<div class='capturedPiece'></div>");
+        }
     }
     if (player == 2) {
         let play = 'P1';
-        $('#p1-score').append("<div class='capturedPiece'></div>");
-        BOARD_DEF.scores[play] += 1;
+        BOARD_DEF.scores[play] += score;
         console.log("P1 Score: " + BOARD_DEF.scores[play]);
+        for (let i = 0; i<score; i++){
+            $('#p1-score').append("<div class='capturedPiece'></div>");
+        }
     }
+    removed = false;
+    removedPlayer = 0;
+    score = 0;
+    console.log("SCORE after: " + score);
 } 
 
 function updateSuperPiece(piecePos, pieceType){
@@ -203,6 +224,14 @@ canvas.onmousemove = function(e){
         pos.size = tilesize;
         piecemoving.piece.mouseMove(pos);
     }
+    let cleared = isRemoved();
+    if(cleared){
+        console.log("removedPlayer: " + removedPlayer);       
+        console.log("SCORE SA CLEARED: " + score);
+        updateScores(removedPlayer, score);
+        console.log("removedPlayer after update: " + removedPlayer);
+    }
+    score = 0;
 }
 
 function getPos(c, e){
