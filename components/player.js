@@ -44,7 +44,6 @@ function init(){
     }
 }
 
-
 function draw(){
     context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -69,10 +68,7 @@ function collide( source, target ) {
 canvas.onmouseup = function(e){
     moving = false;
     let mp = getPos(canvas, e);
-
-    if(BOARD_DEF.move == AI && withAI){
-        return;
-    }
+   
     let donePlayerMove = false;
     for(let i=0; i<tiles.length; i++){
         let t = {x: tiles[i].x, y: tiles[i].y, w: tiles[i].size, h: tiles[i].size};
@@ -178,10 +174,6 @@ function updateSuperPiece(piecePos, pieceType){
 
 canvas.onmousedown =  function(e){
 
-    if(BOARD_DEF.move == AI && withAI){
-        return;
-    }
-
     let mp = getPos(canvas, e);
 
     for(let i=0; i<tiles.length; i++){
@@ -236,7 +228,7 @@ if(DEBUG){
 }
 
 let counterAlert = 0;
-let aiMoveCounter = 0;
+let MoveCounter = 0;
 let stopLoop = false;
 
 function loop() {
@@ -245,17 +237,17 @@ function loop() {
         zz.innerHTML = printBoard();
     }
 
-    if(withAI && BOARD_DEF.move == AI){
-        aiMoveCounter++;
-        if(aiMoveCounter > 20){
+    draw();
+
+    if(BOARD_DEF.move == PLAYER.P1){
+        MoveCounter++;
+        if(MoveCounter > 20){
             if(BOARD_DEF.availableMoves.length > 0) {
-                aiMove(BOARD_DEF);
-                aiMoveCounter = 0;
+                generateMove(PLAYER.P1, BOARD_DEF);
+                MoveCounter = 0;
             }
         }
     }
-
-    draw();
 
     if(BOARD_DEF.availableMoves.length <= 0){
         counterAlert++;
@@ -264,7 +256,7 @@ function loop() {
         let p = BOARD_DEF.move == PLAYER.P1 ? "Red" : "Blue";
         stopLoop = true;
         let phrase = p + " player wins!";
-        $('#result').append("<h1 class='results'>" +phrase+ "</h1> <p> Player 1 Score: " + BOARD_DEF.scores['P1'] + "<br>Player 2 Score: " + BOARD_DEF.scores['P2'] + "</p>"); 
+        $('#result').append("<h1 class='results'>" +phrase+ "</h1> <p> Player 1 Score: " + BOARD_DEF.scores['P1'] + "<br>Player 2 Score: " + BOARD_DEF.scores['P2'] + "</p>");
         endTime();
     }
     if(!stopLoop)

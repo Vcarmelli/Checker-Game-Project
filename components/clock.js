@@ -1,3 +1,5 @@
+var interval;
+
 document.addEventListener("DOMContentLoaded", function() {
     var startTime = new Date();
 
@@ -12,7 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('timeElapsed').innerText = hours + ':' + minutes + ':' + seconds;
     }
 
-    setInterval(updateClock, 1000);
+    interval = setInterval(updateClock, 1000);
 
     updateClock();
 });
+
+function endTime() {
+    clearInterval(interval);
+}

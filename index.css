@@ -34,12 +34,11 @@ p {
 
 .button {
     display: block;
-    width: 100px;
+    width: 200px;
     height: 20px;
     margin: 10px;
-    margin-top: 0%;
     border: 1px solid black;
-    padding: 10px 20px;
+    padding: 15px 20px;
     background-color: white;
     text-align: center;
     text-decoration: none;
