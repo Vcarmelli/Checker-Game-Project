@@ -33,3 +33,29 @@ body {
     flex-basis: 48%;
     margin-bottom: 20px; 
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0;
+}
+
+.button {
+    display: block;
+    width: 150px;
+    height: 20px;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 15px 20px;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.button:hover {
+    background-color: #3f160e; 
+    transform: scale(1.1); 
+}
