@@ -6,45 +6,45 @@
     <title>Main Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Open+Sans:wght@300&family=Poppins:wght@200&family=Raleway:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,900;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
-    <audio autoplay loop class="hidden-audio">
-        <source src="Top Ten - Jeremy Blake.mp3" type="audio/mp3">
-        Your browser does not support HTML5 audio
-    </audio>
+    <div class="wrap">
+        <audio autoplay loop class="hidden-audio">
+            <source src="Top Ten - Jeremy Blake.mp3" type="audio/mp3">
+            Your browser does not support HTML5 audio
+        </audio>
 
-    <div autoplay loop class="image-container">
-        <img src="/images/checkerboard.png" alt="checkerboard">
+    <div class="main-container">
+        <div class="title-container">
+            <h1>CHECKR</h1>
+            <audio class="hidden-audio">
+                <source src="clicksound.mp3" type="audio/mpeg">
+                <source src="clicksound.ogg" type="audio/ogg">
+                Your browser does not support HTML5 audio
+            </audio>
+        </div>
+        <div class="button-container">
+            <a href="game.html"><button class="button" id="startButton">Player vs AI</button></a>
+            <a href="multiplayer.html"><button class="button" id="multiplayerButton">Player vs Player</button></a>
+            <a href="instruction.html"><button class="button" id="instructionsButton">Instructions</button></a>
+        </div>
+        
+        <script>
+            var audio = document.getElementsByClassName("hidden-audio")[1]; 
+        
+            document.getElementById("startButton").addEventListener("click", playClickSound);
+            document.getElementById("multiplayerButton").addEventListener("click", playClickSound);
+            document.getElementById("instructionsButton").addEventListener("click", playClickSound);
+        
+            function playClickSound() {
+                var newAudio = audio.cloneNode();
+                newAudio.currentTime = 0; 
+                newAudio.play();
+            }
+        </script>
     </div>
-    <h1> CHECKER GAME</h1>
-    <audio class="hidden-audio">
-        <source src="clicksound.mp3" type="audio/mpeg">
-        <source src="clicksound.ogg" type="audio/ogg">
-        Your browser does not support HTML5 audio
-    </audio>
-    <div class="button-container">
-        <a href="game.html" class="button" id="startButton">Player vs Computer</a>
-        <a href="multiplayer.html" class="button" id="multiplayerButton">Player vs Player</a>
-        <a href="instruction.html" class="button" id="instructionsButton">Instructions</a>     
-    </div>
-    
-    
-    <script>
-        var audio = document.getElementsByClassName("hidden-audio")[1]; 
-    
-        document.getElementById("startButton").addEventListener("click", playClickSound);
-        document.getElementById("instructionsButton").addEventListener("click", playClickSound);
-        document.getElementById("multiplayerButton").addEventListener("click", playClickSound);
-    
-        function playClickSound() {
-            var newAudio = audio.cloneNode();
-            newAudio.currentTime = 0; 
-            newAudio.play();
-        }
-    </script>
-    
-
+</div>
 </body>
 </html>

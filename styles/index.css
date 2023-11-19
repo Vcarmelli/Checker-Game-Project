@@ -1,10 +1,24 @@
-body {
-    font-family: 'Blaka Ink';
+root{
+    --dark-color:#2C3333;
+    --secondary-dark-color:#2E4F4F;
+    --green-color:#0E8388;
+    --light-green-color:#CBE4DE;
+    --white: white;
+}
+
+body{
+    font-family: 'Bowlby One SC', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+
+.wrap {
     font-size: 25px;
-    background-image: url("https://images.unsplash.com/photo-1619252584172-a83a949b6efd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://r4.wallpaperflare.com/wallpaper/513/292/11/gradient-abstract-hd-4k-wallpaper-e846cdf85000ec0870cc012e9822d47a.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     height: 100vh;
     margin: 0;
     display: flex;
@@ -14,50 +28,97 @@ body {
     cursor: cell;
 }
 
+.main-container{
+    height: 70vh;
+    background-color: #12486B   ;
+    width: 45%;
+    border-radius: 32px;
+} 
+
+.title-container{
+    background-color: #0E8388;
+    margin: 10px;
+    border-radius: 25px;
+    box-shadow: inset 0 3px 5px 0px #0a5b5d;
+    border: solid 30px white;
+    margin-bottom: 5vh;
+}
+
 h1 {
-    font-size: 60px;
+    font-size: 100px;
     text-align: center;
     margin: 0;
+    color: white;
 }
 
 p {
     font-size: 25px;
     text-align: center;
+    
 }
 
 .button-container {
     display: flex;
     flex-direction: column; 
-    align-items: center; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
     margin: 0;
+}
+
+button{
+    font-size: 25px;
 }
 
 .button {
-    display: block;
-    width: 200px;
-    height: 20px;
-    margin: 10px;
-    border: 1px solid black;
-    padding: 15px 20px;
-    background-color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease; 
+  appearance: button;
+  background-color: #16b4ba;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins',sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button:focus {
+  text-decoration: none;
 }
 
 .button:hover {
-    background-color: #3f160e; 
-    transform: scale(1.1); 
+  text-decoration: none;
+  background-color: #0a5e61;
+  transition: all 0.4s;
 }
 
-.hidden-audio {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+.button:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
 }
 
-.checkerboard{
-    width: 100%;
-    margin: 0;
+.button:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 12px 50px;
+  }
 }
