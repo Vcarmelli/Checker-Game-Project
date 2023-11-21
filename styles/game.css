@@ -1,20 +1,28 @@
 body {
     font-family: 'Open Sans', sans-serif, 'Poppins', sans-serif, 'Raleway', sans-serif;
-    background-image: url("https://media.istockphoto.com/id/1454860970/photo/4k-defocused-background.webp?b=1&s=170667a&w=0&k=20&c=y6-9A8uhyLpeNuH7WPt3o8Nc4lRqetEmvmD3po4xndk=");
+    background-image: url("https://r4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-78664db880d01c78404c214e28e2847a.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     margin: 0;
     display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
 }
 
-#score {
+.container-2{
     display: flex;
     flex-direction: column;
+}
+
+#score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin: 20px;
+    
 }
 
 #score #p1-score .capturedPiece {
@@ -70,3 +78,5 @@ body {
     background-color: #3f160e; 
     transform: scale(1.1); 
 }
+
+
