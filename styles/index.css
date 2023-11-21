@@ -19,12 +19,9 @@ body {
 
 .wrap {
     font-size: 25px;
-    /* background-image: url("https://r4.wallpaperflare.com/wallpaper/513/292/11/gradient-abstract-hd-4k-wallpaper-e846cdf85000ec0870cc012e9822d47a.jpg"); */
-    /* background-image: url("https://img.freepik.com/free-vector/space-game-background-with-landscape-planet_107791-1700.jpg?w=1060&t=st=1700493120~exp=1700493720~hmac=ffbd4ea07c99cae1e891daf02424c481ce329c0dca31a3f7c72e6279504fa107"); */  
-    width: 120%;
+    width: 100%;
     height: 100vh;
-    margin-left: 5%;
-    margin-right: 0;
+    margin: 0 0 0 5%;
     display: flex;
     flex-direction: row; 
     align-items: center;
@@ -302,11 +299,10 @@ p {
   animation-delay: 9s;
 }
 
-.uniform {
+.spinning {
   position:relative;
   left:0;
   top:0;
-  margin-right: 10px;
   width:100vw;
   height:100vh;
   transform:scale(0.6);
@@ -316,11 +312,7 @@ p {
   transition:transform ease 1s;
 }
 
-.noborders .object3d{
-  top:80px;
-}
-
-.object3d{
+.object3d {
   top:0px;
   position:relative;
   transform:perspective(3705px) rotateX(45deg) rotateY(0deg) rotateZ(50deg) translate3d(0px, 215px, 0px);
@@ -331,27 +323,8 @@ p {
   transition-property:top, transform;
 }
 
-.noanimations .piece,
-.noanimations .object3d,
-.noanimations .uniform,
-.noanimations.scalable .main-stage,
-.noanimations.scalable .main-stage::before,
-.noanimations.scalable .main-stage .side1,
-.noanimations.scalable .main-stage .side2,
-.noanimations.scalable .main-stage .side1::before,
-.noanimations.scalable .main-stage .side2::before,
-.noanimations .coordinates::before, .noanimations .coordinates::after,
-.noanimations .coordinates_::before, .noanimations .coordinates_::after,
-.noanimations .main-elements::after{
-  transition:none!important;
-}
-
 .object3d.rotate{
-  animation:autorotate linear 10s forwards infinite;
-}
-
-.hide{
-  visibility: hidden;
+  animation: autorotate linear 10s alternate infinite;
 }
 
 @keyframes autorotate{
@@ -450,31 +423,6 @@ p {
   display:block;
 }
 
-.noborders .chess-defaults{
-  --border-size:0px;
-  --outline-offset:0px;
-  --outline-size:0px;
-}
-
-.noborders .coordinates::before, .noborders .coordinates::after{
-  color:rgba(0,0,0,0);
-}
-
-.noscroll{
-  overflow:hidden;
-}
-
-/* Animate the border */
-.scalable .main-stage,
-.scalable .main-stage::before,
-.scalable .main-stage .side1,
-.scalable .main-stage .side2,
-.scalable .main-stage .side1::before,
-.scalable .main-stage .side2::before{
-  transition:all ease 0.7s;
-  transition-property:width, height, transform, background-color;
-}
-
 /* Stage */
 .main-stage{
   --width:var(--border-template);
@@ -520,7 +468,6 @@ p {
   height:var(--max-area);
   transform:translate(-50%,-50%) translateZ(var(--height));
   transform-style:preserve-3d;
-
   --concat-color:#905438;
   background-image:linear-gradient(45deg, var(--concat-color) calc(25% + 0.3px), transparent 25%, transparent 75%, var(--concat-color) 75%, var(--concat-color) 0),
   linear-gradient(45deg, var(--concat-color) calc(25% + 0.3px), transparent 25%, transparent 75%, var(--concat-color) 75%, var(--concat-color) 0);
@@ -550,10 +497,6 @@ p {
   box-shadow:0 0 0 2px rgba(0,0,0,0);
 }
 
-.stage-over{
-  position:absolute;
-}
-
 /* Chess Defaults */
 .chess-defaults{
   --block-size:70px;
@@ -566,7 +509,6 @@ p {
   --max-area:calc(var(--block-size) * 8);
   --outline-template:calc(100% + var(--outline-offset) * 2);
   --border-template:calc(var(--max-area) + var(--border-size) * 2);
-
   --oct-path:polygon(50% 0%, 0 100%, 100% 100%);
   --nan-path:polygon(50% 0%, 0 96%, 86% 100%);
 }
@@ -594,10 +536,6 @@ p {
   --A-color:#DBA162;
   --B-color:#B38554;
   border-radius: 50%; 
-}
-
-.highlighted .piece{
-  background-color:rgba(0,100,220,0.6);
 }
 
 .piece > .reusable-rect{
@@ -632,7 +570,6 @@ p {
   --piece-head:20px;
 }
 
-/* shadow */
 .piece-base::after{
   content:"";
   position:absolute;
@@ -646,139 +583,10 @@ p {
   border-radius: 50%; 
 }
 
-/* common properties */
 .piece-base{
   transform:translate(-50%,-50%);
   --width:var(--piece-basesize);
   --length:var(--piece-basesize);
   --height:10px;
   border-radius: 50%; 
-}
-
-/* controls */
-#controls {
-  position:fixed;
-  left:0px;
-  top:0px;
-  background-color:black;
-  display:block;
-  padding:4px 0;
-  color:white;
-  transition-property:top,transform;
-  transition-duration:0.64s;
-  transition-timing-function:cubic-bezier(.17,.84,.44,1);
-  --controls-active:linear-gradient(0deg, rgba(0,100,200,0.4), rgba(0,100,200,0.4));
-  --controls-active-warn:linear-gradient(0deg, rgba(217,54,0,0.4), rgba(217,54,0,0.4));
-}
-
-/* additional controls */
-
-.rotating #controls button.spin360{
-  background-image:var(--controls-active);
-}
-
-/* controls makeup */
-#controls .title{
-  position:relative;
-  padding:6px 8px;
-  display:block;
-  margin:2px 0;
-}
-
-#controls button{
-  display:inline-block;
-  background:rgba(255,255,255,0.1);
-  color:white;
-  border:0;
-  position:relative;
-  font-size:10px;
-  padding:6px 14px;
-  margin:2px auto;
-  width:48%;
-  /*outline:none;*/
-  outline-offset:-4px;
-}
-
-#controls button.ehide::before{
-  content:"Hide ";
-}
-
-#controls button:hover{
- background:rgba(255,255,255,0.2);
-}
-#controls button:active{
- background:rgba(255,255,255,0.15);
-}
-
-#controls.hide{
-  top:34px;
-  transform:translateY(-100%);
-}
-
-#controls.hide button.ehide{
- background-image:var(--controls-active);
-}
-
-#controls.hide button.ehide::before{
- content:"Show ";
-}
-
-label{
-  display:block;
-  padding:4px 8px;
-}
-
-label > span{
-  display:inline-block;
-  color:white;
-  width:20px;
-  height:12px;
-  line-height:12px;
-  position:relative;
-  left:0px;
-  top:-2px;
-  opacity:0.7;
-}
-
-label:hover > span{
-  opacity:1;
-}
-
-label > span:last-child{
-  width:50px;
-  text-align:right;
-}
-
-input[type="range"]{
-  -webkit-appearance:none;
-  appearance:none;
-  padding:0;
-  margin:0;
-  overflow:hidden;
-  width:200px;
-  height:12px;
-  background:rgb(20,20,20);
-}
-
-/* range makeup for Chrome */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance:none;
-    width:15px;
-    height:12px;
-    cursor:ew-resize;
-    background:#434343;
-  }
-
-  input[type='range']:hover::-webkit-slider-thumb {
-    background:rgb(0,110,210);
-  }
-
-  input[type='range']:active::-webkit-slider-thumb {
-    background:rgb(0,160,255);
-  }
-
-  input[type='range']:hover, input[type='range']:active {
-    background:rgb(30,30,30);
-  }
 }
