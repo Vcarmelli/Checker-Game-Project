@@ -5,8 +5,7 @@ const scoreStats = document.getElementById('score');
 
 canvas.width = 500;
 canvas.height = 500;
-canvas.style.border = '1px solid black';
-
+canvas.style.border = '5px solid #9A3B3B';
 document.body.append(canvas);
 document.body.append(scoreStats);
 

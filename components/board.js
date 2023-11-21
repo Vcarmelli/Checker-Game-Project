@@ -2,10 +2,10 @@ var DEBUG = false;
 var withAI = true;
 
 const imgs = [null, new Image(), new Image(), new Image(), new Image()];
-imgs[1].src = '/images/r.png';
-imgs[2].src = '/images/y.png';
-imgs[3].src = '/images/r_super.png';
-imgs[4].src = '/images/y_super.png';
+imgs[1].src = '/images/b.svg';
+imgs[2].src = '/images/r.svg';
+imgs[3].src = '/images/b_super.svg';
+imgs[4].src = '/images/r_super.svg';
 
 const PLAYER = {P1: 1, P2: 2};
 
@@ -393,7 +393,7 @@ function hasPieceAt(pos, index){
 
 function printBoard(){
     let s = "";
-    s += "<div class='board'><center>";
+    s += "<center>";
     let x = 0;
     let y = false;
    for(let i=0; i<sqr48.length*2; i++){
@@ -409,7 +409,7 @@ function printBoard(){
             x++;
         }
     }
-   s += "</center></div>";
+   s += "</center>";
    return s;
 }
 

@@ -1,3 +1,10 @@
+:root {
+    --dark-color: #9A3B3B;
+    --secondary-dark-color:#83541E;
+    --light-color:#FFE096;
+    --white: white;
+}
+
 body {
     font-family: 'Open Sans', sans-serif, 'Poppins', sans-serif, 'Raleway', sans-serif;
     background-image: url("https://r4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-78664db880d01c78404c214e28e2847a.jpg");
@@ -28,7 +35,7 @@ body {
 #score #p1-score .capturedPiece {
     width: 2.4vmin;
     height: 2.4vmin;
-    background-color: red;
+    background-color: #9A3B3B;
     border-radius: 6vmin;
     display: inline-block;
     box-sizing: border-box;
@@ -38,7 +45,7 @@ body {
 #score #p2-score .capturedPiece {
     width: 2.4vmin;
     height: 2.4vmin;
-    background-color: blue;
+    background-color: #00659E;
     border-radius: 6vmin;
     display: inline-block;
     box-sizing: border-box;
@@ -78,5 +85,3 @@ body {
     background-color: #3f160e; 
     transform: scale(1.1); 
 }
-
-
