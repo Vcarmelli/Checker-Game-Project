@@ -393,7 +393,7 @@ function hasPieceAt(pos, index){
 
 function printBoard(){
     let s = "";
-    s += "<center>";
+    s += "<div class='board'><center>";
     let x = 0;
     let y = false;
    for(let i=0; i<sqr48.length*2; i++){
@@ -409,7 +409,7 @@ function printBoard(){
             x++;
         }
     }
-   s += "</center>";
+   s += "</center></div>";
    return s;
 }
 

@@ -1,14 +1,17 @@
-root{
-    --dark-color:#2C3333;
-    --secondary-dark-color:#2E4F4F;
-    --green-color:#0E8388;
-    --light-green-color:#CBE4DE;
+:root {
+    --dark-color: #9A3B3B;
+    --secondary-dark-color:#83541E;
+    --light-color:#FFE096;
     --white: white;
 }
 
-body{
+body {
     font-family: 'Bowlby One SC', sans-serif;
     font-family: 'Poppins', sans-serif;
+    background-image: url("https://r4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-78664db880d01c78404c214e28e2847a.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
     margin: 0;
 }
 
@@ -16,11 +19,8 @@ body{
 .wrap {
     font-size: 25px;
     /* background-image: url("https://r4.wallpaperflare.com/wallpaper/513/292/11/gradient-abstract-hd-4k-wallpaper-e846cdf85000ec0870cc012e9822d47a.jpg"); */
-    /* background-image: url("https://img.freepik.com/free-vector/space-game-background-with-landscape-planet_107791-1700.jpg?w=1060&t=st=1700493120~exp=1700493720~hmac=ffbd4ea07c99cae1e891daf02424c481ce329c0dca31a3f7c72e6279504fa107"); */
-    background-image: url("https://r4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-78664db880d01c78404c214e28e2847a.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; 
+    /* background-image: url("https://img.freepik.com/free-vector/space-game-background-with-landscape-planet_107791-1700.jpg?w=1060&t=st=1700493120~exp=1700493720~hmac=ffbd4ea07c99cae1e891daf02424c481ce329c0dca31a3f7c72e6279504fa107"); */  
+    width: 100%;
     height: 100vh;
     margin: 0;
     display: flex;
@@ -55,7 +55,7 @@ h1 {
     font-size: 100px;
     text-align: center;
     margin: 0;
-    color: #9A3B3B;
+    color: var(--dark-color);
 }
 
 p {
@@ -173,7 +173,7 @@ p {
     font-size: 100px;
     text-align: center;
     margin: 0;
-    color: #9A3B3B;
+    color: var(--dark-color);
   animation: bounce 1s infinite;
 }
 @keyframes bounce {
@@ -203,4 +203,155 @@ p {
 }
 .ten span:nth-of-type(6) {
   animation-delay: 0.6s;
+}
+
+.circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+@keyframes animate {
+  0%{
+    opacity: 1;
+    border-radius: 50%;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    border-radius: 50%;
+    transform: translateY(-1000px) rotate(720deg);
+  }
+}
+
+.circles div {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: var(--light-color);
+  bottom: -150px;
+  animation: animate 25s linear infinite;
+}
+
+.circles div:nth-child(1) {
+  left: 20%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 16s;
+}
+
+.circles div:nth-child(2) {
+  background: var(--dark-color);
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.circles div:nth-child(3) {
+  left: 70%;
+  width: 30px;
+  height: 30px;
+  animation-delay: 4s;
+}
+
+.circles div:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.circles div:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.circles div:nth-child(6) {
+  background: var(--dark-color);
+  left: 75%;
+  width: 120px;
+  height: 120px;
+  animation-delay: 13s;
+}
+
+.circles div:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 17s;
+}
+
+.circles div:nth-child(8) {
+  background: var(--dark-color);
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 0s;
+  animation-duration: 45s;
+}
+
+.circles div:nth-child(9) {
+  left: 55%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.circles div:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+.circles div:nth-child(11) {
+  background: var(--dark-color);
+  left: 45%;
+  width: 90px;
+  height: 90px;
+  animation-delay: 4s;
+  animation-duration: 9s;
+}
+
+.circles div:nth-child(12) {
+  background: var(--dark-color);
+  left: 15%;
+  width: 120px;
+  height: 120px;
+  animation-delay: 5s;
+}
+
+.circles div:nth-child(13) {
+  left: 30%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 3s;
+  animation-duration: 20s;
+}
+
+.circles div:nth-child(14) {
+  left: 28%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+.circles div:nth-child(15) {
+  left: 95%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 9s;
 }

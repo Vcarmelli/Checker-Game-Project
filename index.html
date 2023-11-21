@@ -16,49 +16,67 @@
             Your browser does not support HTML5 audio
         </audio>
 
-    <div class="main-container">
-        <div class="title-container">
-            <div class="wrapper ten">
-                <div>
-                    <h3 class="bounce">
-                        <span>L</span>
-                        <span>E</span>
-                        <span>S</span>
-                        <span>C</span>
-                        <span>H</span>
-                        <span>E</span>
-                        <span>C</span>
-                        <span>K</span>
-                    </h3>
+        <div class="main-container">
+            <div class="title-container">
+                <div class="wrapper ten">
+                    <div>
+                        <h3 class="bounce">
+                            <span>L</span>
+                            <span>E</span>
+                            <span>S</span>
+                            <span>C</span>
+                            <span>H</span>
+                            <span>E</span>
+                            <span>C</span>
+                            <span>K</span>
+                        </h3>
+                    </div>
                 </div>
+                <audio class="hidden-audio">
+                    <source src="clicksound.mp3" type="audio/mpeg">
+                    <source src="clicksound.ogg" type="audio/ogg">
+                    Your browser does not support HTML5 audio
+                </audio>
             </div>
-            <audio class="hidden-audio">
-                <source src="clicksound.mp3" type="audio/mpeg">
-                <source src="clicksound.ogg" type="audio/ogg">
-                Your browser does not support HTML5 audio
-            </audio>
+            <div class="button-container">
+                <a href="game.html"><button class="button" id="startButton">Player vs AI</button></a>
+                <a href="multiplayer.html"><button class="button" id="multiplayerButton">Player vs Player</button></a>
+                <a href="instruction.html"><button class="button" id="instructionsButton">Instructions</button></a>
+            </div>
+            
+            <script>
+                var audio = document.getElementsByClassName("hidden-audio")[1]; 
+            
+                document.getElementById("startButton").addEventListener("click", playClickSound);
+                document.getElementById("multiplayerButton").addEventListener("click", playClickSound);
+                document.getElementById("instructionsButton").addEventListener("click", playClickSound);
+            
+                function playClickSound() {
+                    var newAudio = audio.cloneNode();
+                    newAudio.currentTime = 0; 
+                    newAudio.play();
+                }
+            </script>
         </div>
-        <div class="button-container">
-            <a href="game.html"><button class="button" id="startButton">Player vs AI</button></a>
-            <a href="multiplayer.html"><button class="button" id="multiplayerButton">Player vs Player</button></a>
-            <a href="instruction.html"><button class="button" id="instructionsButton">Instructions</button></a>
+        <div class="circles">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        
-        <script>
-            var audio = document.getElementsByClassName("hidden-audio")[1]; 
-        
-            document.getElementById("startButton").addEventListener("click", playClickSound);
-            document.getElementById("multiplayerButton").addEventListener("click", playClickSound);
-            document.getElementById("instructionsButton").addEventListener("click", playClickSound);
-        
-            function playClickSound() {
-                var newAudio = audio.cloneNode();
-                newAudio.currentTime = 0; 
-                newAudio.play();
-            }
-        </script>
     </div>
-</div>
+   
 </body>
 </html>
 

@@ -6,9 +6,9 @@ class Tile{
         this.sqr = sqr;
         this.piece = p;
         if(c)
-            this.color = 'black';
+            this.color = '#E9A178';
         else
-            this.color = 'white';
+            this.color = '#FFE096';
     }
 
     draw(context){
