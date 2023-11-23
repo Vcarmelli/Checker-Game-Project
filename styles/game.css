@@ -17,6 +17,18 @@ body {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
+    animation: transitionIn 1.5s;
+}
+
+@keyframes transitionIn {
+    from {
+      opacity: 0;
+      transform: rotateX(45deg) translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0deg) translateY(0px);
+    }
 }
 
 #checkerboard {
