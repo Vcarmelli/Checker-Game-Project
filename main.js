@@ -1,11 +1,14 @@
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
 
+const board = document.getElementById('checkerboard');
+
 canvas.width = 500;
 canvas.height = 500;
-canvas.style.border = '5px solid #9A3B3B';
+canvas.style.border = '4px solid #FFE096';
+canvas.style.borderRadius = '25px';
 
-document.body.append(canvas);
+board.appendChild(canvas);
 
 const tilesize = canvas.width / 8;
 
