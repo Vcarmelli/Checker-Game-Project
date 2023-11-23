@@ -301,6 +301,6 @@ function resetGame() {
 
     BOARD_DEF.scores['P1'] = 0;
     BOARD_DEF.scores['P2'] = 0;
-    window.location.href = 'game.html';
+    window.location.href = 'multiplayer.html';
 
 }

@@ -1,6 +1,5 @@
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
-
 const board = document.getElementById('checkerboard');
 
 canvas.width = 500;
@@ -11,7 +10,6 @@ canvas.style.borderRadius = '25px';
 board.appendChild(canvas);
 
 const tilesize = canvas.width / 8;
-
 const tiles = [];
 
 let moving = false;
@@ -274,7 +272,7 @@ function loop() {
 requestAnimationFrame(loop);
 
 $('#closeModal').on('click', function () {
-    $('#myModal').css('display', 'block');
+    $('#myModal').css('display', 'block');  
 });
 
 document.addEventListener('DOMContentLoaded', function() {

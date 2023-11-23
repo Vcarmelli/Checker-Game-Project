@@ -179,7 +179,7 @@ body {
 #backButton {
     background-image: url('/images/button1.png');
     background-color: transparent;
-    z-index: 999;
+    z-index: 99;
     background-size: cover;
     height: 40px;
     width: 125px;
@@ -188,13 +188,13 @@ body {
     color: white;
 }
 
-#yesButton:hover 
+#yesButton:hover, 
 #noButton:hover, 
 #retryButton:hover, 
 #exitButton:hover, 
 #backButton:hover {
     transform: scale(1.05) rotate(-1deg);
-    transition: all 1s;
+    transition: all 0.4s;
     color:white; 
 }
 
@@ -206,6 +206,7 @@ body {
     width: 420px;
     align-items: center;
     position: fixed;
+    z-index: 999;
 }
 
 .modal-content {
