@@ -19,11 +19,6 @@ body {
     justify-content: center;
 }
 
-.container-2{
-    display: flex;
-    flex-direction: column;
-}
-
 #score {
     display: flex;
     flex-direction: row;
@@ -32,29 +27,52 @@ body {
     
 }
 
-#score #p1-score .capturedPiece {
-    width: 2.4vmin;
-    height: 2.4vmin;
-    background-color: #9A3B3B;
-    border-radius: 6vmin;
-    display: inline-block;
+#p1-score, #p2-score {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
     box-sizing: border-box;
-    margin: 5px; 
+    background-image: url('/images/button3.svg'); 
+    background-size: cover;
+    height: 140px;
+    width: 350px;
+    top: 50%;
+    padding: 0px 55px;
+    transform: translateY(-50%);
 }
 
-#score #p2-score .capturedPiece {
-    width: 2.4vmin;
-    height: 2.4vmin;
-    background-color: #00659E;
-    border-radius: 6vmin;
-    display: inline-block;
+#p1-score {
+    left: 20px;     
+}
+
+#p2-score {  
+    right: 5%;
+}
+
+#p1-score h3, #p2-score h3 {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding-top: 5%;
+    color: #00659e;
+}
+
+#p2-score h3 {
+    color: #712a2a;
+}
+
+.capturedPiece {
+    display: flex;
     box-sizing: border-box;
-    margin: 5px; 
+    margin: 0px 5px 0px 5px; 
+    height: 30px;
+    width: 30px;
 }
 
 #clock {
     display: flex;
-    margin: 20px;
+    order: 1;
+    margin: 10px;
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
@@ -64,7 +82,7 @@ body {
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    margin: 0;
+    margin: 10px;
 }
 
 .button {
@@ -72,7 +90,6 @@ body {
     width: 150px;
     height: 20px;
     margin: 10px;
-    border: 1px solid black;
     padding: 15px 20px;
     background-color: white;
     text-align: center;
@@ -82,6 +99,123 @@ body {
 }
 
 .button:hover {
-    background-color: #3f160e; 
     transform: scale(1.1); 
+}
+
+#confirmation-popup {
+    background-color: transparent;
+    display: none;
+    position: fixed;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('/images/button.svg');
+    z-index: 999;
+    background-size: cover;
+    height: 188px;
+    width: 300px;
+    text-align: center;
+    padding: 0px 30px;
+}
+
+#yesButton, #noButton {
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+    margin-top: 55px;
+    margin-right: 18px;
+}
+
+#noButton {
+    margin-left: 25px;
+}
+
+#backButton {
+    background-image: url('/images/button1.png');
+    background-color: transparent;
+    z-index: 999;
+    background-size: cover;
+    height: 40px;
+    width: 125px;
+    text-align: center;
+    border: none;
+    color: white;
+}
+
+#yesButton:hover 
+#noButton:hover, 
+#retryButton:hover, 
+#exitButton:hover, 
+#backButton:hover {
+    transform: scale(1.1);
+    transition: all 2s;
+    color:white;
+}
+
+.modal {
+    display: none; 
+    background-image: url('../images/button2.svg');
+    background-size: cover;
+    height: 246px;
+    width: 420px;
+    align-items: center;
+    position: fixed;
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.popup-content {
+    padding: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#popupMessage {
+    margin-top: 0px;
+    font-size: xx-large;
+    background-size: cover;
+    position: fixed;
+}
+
+#popupScores {
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+#retryButton {
+    position: fixed;
+    text-align: center;
+    background-color: transparent;
+    color:black;
+    align-items: center;
+    border: none;
+    margin-top: 10px;
+    margin-left: 9.5%;
+    cursor: pointer;
+    font-size: larger;
+}
+
+#exitButton {
+    background-color: transparent;
+    position: fixed;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    border: none;
+    margin-left: 26%;
+    margin-top: -9px;
+    cursor: pointer;
+    font-size: x-large;
 }

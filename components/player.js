@@ -1,14 +1,11 @@
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
 
-const scoreStats = document.getElementById('score');
-
 canvas.width = 500;
 canvas.height = 500;
 canvas.style.border = '5px solid #9A3B3B';
 
 document.body.append(canvas);
-document.body.append(scoreStats);
 
 const tilesize = canvas.width / 8;
 
@@ -140,20 +137,18 @@ function isRemoved() {
 }
 
 function updateScores(player, score) {
-    if (player == 1) {
+    if (player == 1 && score !== null) {
         let play = 'P2';
         BOARD_DEF.scores[play] += score;
-        console.log("P2 Score: " + BOARD_DEF.scores[play]);
-        for (let i = 0; i<score; i++){
-            $('#p2-score').append("<div class='capturedPiece'></div>");
+        for (let i = 0; i < score; i++){
+            $('#p2-score').append("<div class='capturedPiece'><img src='images/1.svg'></div>");
         }
     }
-    if (player == 2) {
+    if (player == 2 && score !== null) {
         let play = 'P1';
         BOARD_DEF.scores[play] += score;
-        console.log("P1 Score: " + BOARD_DEF.scores[play]);
         for (let i = 0; i<score; i++){
-            $('#p1-score').append("<div class='capturedPiece'></div>");
+            $('#p1-score').append("<div class='capturedPiece'><img src='images/2.svg'></div>");
         }
     }
     removed = false;
@@ -255,8 +250,10 @@ function loop() {
     if(counterAlert > 30){
         let p = BOARD_DEF.move == PLAYER.P1 ? "Red" : "Blue";
         stopLoop = true;
-        let phrase = p + " player wins!";
-        $('#result').append("<h1 class='results'>" +phrase+ "</h1> <p> Player 1 Score: " + BOARD_DEF.scores['P1'] + "<br>Player 2 Score: " + BOARD_DEF.scores['P2'] + "</p>");
+        let result = p + " player wins!";
+        $('#popupMessage').text(result);
+        $('#popupScores').html("Player 1 Score: " + BOARD_DEF.scores['P1'] + "<br>Player 2 Score: " + BOARD_DEF.scores['P2']);
+        $('#myModal').css('display', 'block');
         endTime();
     }
     if(!stopLoop)
@@ -264,3 +261,46 @@ function loop() {
 }
 
 requestAnimationFrame(loop);
+
+$('#closeModal').on('click', function () {
+    $('#myModal').css('display', 'block');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const backButton = document.getElementById('backButton');
+    const confirmationPopup = document.getElementById('confirmation-popup');
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const exitButton = document.getElementById('exitButton');
+    const myModal = document.getElementById('myModal');
+
+    backButton.addEventListener('click', () => {
+        confirmationPopup.style.display = 'block';
+    });
+
+    yesButton.addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+
+    noButton.addEventListener('click', () => {
+        confirmationPopup.style.display = 'none';
+    });
+    const retryButton = document.getElementById('retryButton');
+    retryButton.addEventListener('click', function() {
+        resetGame();
+    });
+    exitButton.addEventListener('click', () => {
+        myModal.style.display = 'none';
+    });
+
+});
+
+function resetGame() {
+    $('#p1-score').html('');
+    $('#p2-score').html('');
+
+    BOARD_DEF.scores['P1'] = 0;
+    BOARD_DEF.scores['P2'] = 0;
+    window.location.href = 'game.html';
+
+}
