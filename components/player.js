@@ -143,14 +143,14 @@ function updateScores(player, score) {
         let play = 'P2';
         BOARD_DEF.scores[play] += score;
         for (let i = 0; i < score; i++){
-            $('#p2-score').append("<div class='capturedPiece'><img src='images/1.svg'></div>");
+            $('#p2-score').append("<div class='capturedPiece'><img src='./images/1.svg'></div>");
         }
     }
     if (player == 2 && score !== null) {
         let play = 'P1';
         BOARD_DEF.scores[play] += score;
         for (let i = 0; i<score; i++){
-            $('#p1-score').append("<div class='capturedPiece'><img src='images/2.svg'></div>");
+            $('#p1-score').append("<div class='capturedPiece'><img src='./images/2.svg'></div>");
         }
     }
     removed = false;

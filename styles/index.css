@@ -377,7 +377,6 @@ p {
   box-shadow:0 0 0 1px rgba(0,0,0,0);
 }
 
-/* all sides */
 .reusable-rect .sides{
   position:absolute;
   left:0;
@@ -392,7 +391,6 @@ p {
   background:var(--front-color,var(--default-color));
 }
 
-/* sides x-axis - horz */
 .reusable-rect .side1{
   width:var(--height);
   height:var(--length);
@@ -407,7 +405,6 @@ p {
   transform:translateZ(calc(var(--width) * -1));
 }
 
-/* sides y-axis - vert */
 .reusable-rect .side2{
   width:var(--width);
   height:var(--height);
@@ -434,7 +431,6 @@ p {
   display:block;
 }
 
-/* Stage */
 .main-stage{
   --width:var(--border-template);
   --height:50px;
@@ -470,7 +466,6 @@ p {
   background-size:1px 1px, 200px 200px;
 }
 
-/* Stage Elements */
 .main-elements{
   position:absolute;
   left:50%;
@@ -508,7 +503,6 @@ p {
   box-shadow:0 0 0 2px rgba(0,0,0,0);
 }
 
-/* Chess Defaults */
 .chess-defaults{
   --block-size:70px;
   --block-set-size:calc(var(--block-size) * 2);
