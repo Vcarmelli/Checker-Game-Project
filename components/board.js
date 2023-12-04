@@ -2,10 +2,10 @@ var DEBUG = false;
 var withAI = true;
 
 const imgs = [null, new Image(), new Image(), new Image(), new Image()];
-imgs[1].src = '../images/b.svg';
-imgs[2].src = '../images/r.svg';
-imgs[3].src = '../images/b_super.svg';
-imgs[4].src = '../images/r_super.svg';
+imgs[1].src = 'images/b.svg';
+imgs[2].src = 'images/r.svg';
+imgs[3].src = 'images/b_super.svg';
+imgs[4].src = 'images/r_super.svg';
 
 const PLAYER = {P1: 1, P2: 2};
 
