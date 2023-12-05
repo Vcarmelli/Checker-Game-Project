@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     yesButton.addEventListener('click', () => {
-        window.location.href = 'index.html';
+        window.location.href = './index.html';
     });
 
     noButton.addEventListener('click', () => {

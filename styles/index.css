@@ -87,7 +87,7 @@ p {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   height: 75px;
-  width: 400px;
+  width: 30vw;
   background: rgb(255,224,150);
   background: linear-gradient(0deg, rgba(255,224,150,1) 19%, rgba(255,240,200,1) 75%);
   border-radius: 25px;
@@ -101,7 +101,7 @@ p {
   text-decoration: none;
   transition: all 250ms;
   border: 0;
-  font-size: 25px;
+  font-size: 1.5rem;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -122,7 +122,7 @@ p {
   display: inline-flex;
   color: #c7f4ff;
   font-family: 'Bowlby One SC', sans-serif;
-    font-size: 100px;
+    font-size: clamp(1.5rem, 8vw + 1rem, 6rem);
     text-align: center;
     margin: 0;
     color: var(--dark-color);
